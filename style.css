@@ -1,0 +1,102 @@
+/* Temel Sıfırlama */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+/* Kapsayıcı */
+.container {
+  max-width: 1110px;
+  display: grid;
+  grid-template-columns: 1fr; /* Mobilde tek sütun */
+  gap: 25px;
+}
+
+/* Başlık Alanı */
+.intro {
+  text-align: center;
+  grid-column: 1 / -1; /* Tüm genişliği kapla */
+  margin-bottom: 30px;
+}
+
+.intro h1 { font-weight: 200; color: #4c4e61; font-size: 1.5rem; }
+.intro .subtitle { font-weight: 600; color: #4c4e61; font-size: 1.5rem; margin-bottom: 15px; }
+.intro .description { color: #a3a5ae; max-width: 500px; margin: 0 auto; }
+
+/* Ortak Kart Stilleri */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px -10px rgba(131, 166, 210, 0.5);
+  border-top: 4px solid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 { color: #4c4e61; margin-bottom: 10px; }
+.card p { color: #a3a5ae; font-size: 0.85rem; line-height: 1.5; }
+.card img { align-self: flex-end; margin-top: 30px; width: 64px; }
+
+/* Kart Renkleri */
+.cyan { border-color: #45d3d3; }
+.red { border-color: #ea5353; }
+.orange { border-color: #fcae4a; }
+.blue { border-color: #549ef2; }
+
+.attribution {
+  grid-column: 1 / -1; /* İlk sütundan son sütuna kadar her yeri kapla */
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* --- MASAÜSTÜ DÜZENİ --- */
+@media (min-width: 950px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* 3 eşit sütun */
+    grid-template-rows: repeat(4, 1fr); /* Daha hassas yerleşim için 4 satır */
+    align-items: center;
+  }
+
+  /* Başlık en üste */
+  .intro { grid-row: 1; }
+
+  /* Supervisor sol sütunda, tam ortada (2. ve 3. satırı kaplar) */
+  #supervisor {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  /* Team Builder orta sütun, üstte */
+  #teambuilder {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: end; /* Biraz aşağı çekmek için */
+  }
+
+  /* Karma orta sütun, altta */
+  #karma {
+    grid-column: 2;
+    grid-row: 3 / 5;
+    align-self: start; /* Biraz yukarı çekmek için */
+  }
+
+  /* Calculator sağ sütunda, tam ortada */
+  #calculator {
+    grid-column: 3;
+    grid-row: 2 / 4;
+  }
+}
